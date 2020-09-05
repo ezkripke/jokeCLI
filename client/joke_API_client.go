@@ -16,7 +16,7 @@ type JokeCategory string
 // BaseURL is the base URL of the API
 const (
 	BaseURL         string       = "https://sv443.net/jokeapi/v2/joke"
-	DefaultCategory JokeCategory = "Programming,Miscellaneous"
+	DefaultCategory JokeCategory = "Programming"
 	DefaultBTags    string       = "nsfw,religious,political,racist,sexist"
 )
 
@@ -47,7 +47,6 @@ func (jc *JokeAPIClient) Fetch(c JokeCategory) (model.Output, error) {
 		"%s/%s?type=%s?blacklistFlags=%s",
 		jc.baseURL, c, t, DefaultBTags,
 	)
-	fmt.Printf("Fetching joke... \n(%s)\n\n", url)
 
 	resp, err := jc.client.Get(url)
 	if err != nil {

@@ -18,10 +18,11 @@ func main() {
 
 	jokeAPIclient := client.NewJokeAPIClient()
 
+	fmt.Printf("Fetching joke... \n\n")
 	joke, err := jokeAPIclient.Fetch(client.JokeCategory(*c))
 	if err != nil {
 		fmt.Printf("An error occured fetching your comic:\n%s\n", err)
 	}
 
-	fmt.Println(joke.Fulljoke)
+	fmt.Printf("********\n%s\n********\n\n", joke.Fulljoke)
 }
